@@ -14,7 +14,7 @@ import { auth } from "../firebase/firebase.config";
 const googleProvider = new GoogleAuthProvider();
 const Registration = () => {
   const [show, setShow] = useState(false);
-  const { createUserWithEmailAndPasswordFun, user, setUser } =
+  const { createUserWithEmailAndPasswordFun, user, setUser, setLoading } =
     useContext(AuthContext);
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -42,6 +42,7 @@ const Registration = () => {
           photoURL,
         })
           .then((res) => {
+            setLoading(false);
             console.log(res);
             toast.success("signup sucessful");
           })

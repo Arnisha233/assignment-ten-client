@@ -1,18 +1,24 @@
 import React, { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import MyLink from "../components/MyLink";
 const googleProvider = new GoogleAuthProvider();
 const Login = () => {
   // const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
-  const { signInWithEmailAndPasswordFun, user, setUser } =
+  const { signInWithEmailAndPasswordFun, user, setUser, setLoading } =
     useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state || "/";
+  console.log(location);
+  const navigate = useNavigate();
+  if (user) {
+    return navigate("/");
+  }
   // console.log(user);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,8 +28,10 @@ const Login = () => {
     signInWithEmailAndPasswordFun(email, password)
       .then((res) => {
         console.log(res);
+        setLoading(false);
         setUser(res.user);
         toast.success("login sucessful");
+        navigate(from);
       })
       .catch((e) => {
         console.log(e);
@@ -33,9 +41,11 @@ const Login = () => {
   const handleGoogleLogin = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
+        setLoading(false);
         console.log(res);
         setUser(res.user);
         toast.success("login sucessful");
+        navigate(from);
       })
       .catch((e) => {
         console.log(e);

@@ -4,7 +4,8 @@ import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
 import Registration from "../pages/Registration";
 import Login from "../pages/Login";
-import About from "../pages/About";
+import AddCar from "../pages/AddCar";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -17,8 +18,12 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "/addCar",
+        element: (
+          <PrivateRoute>
+            <AddCar />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

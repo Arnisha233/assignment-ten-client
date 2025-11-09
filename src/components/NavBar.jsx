@@ -6,13 +6,17 @@ import { MdCarRental } from "react-icons/md";
 // import { auth } from "../firebase/firebase.config";
 // import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import { ClockLoader } from "react-spinners";
 
 const NavBar = () => {
-  const { user, setUser, handleSignoutFun } = useContext(AuthContext);
+  const { user, setUser, handleSignoutFun, loading, setLoading } =
+    useContext(AuthContext);
+  console.log(loading);
   console.log(user);
   const handleSignout = () => {
     // signOut(auth)
-    handleSignoutFun()
+    handleSignoutFun();
+    setLoading(false)
       .then(() => {
         toast.success("signout sucessful");
         setUser(null);
@@ -85,7 +89,7 @@ const NavBar = () => {
                 </MyLink>
               </li>
               <li>
-                <MyLink to={"/about"}>About</MyLink>
+                <MyLink to={"/addCar"}>Add Car</MyLink>
               </li>
               <li>
                 <a>Item 3</a>
@@ -97,7 +101,9 @@ const NavBar = () => {
               Registration
             </MyLink> */}
             {/* <MyLink to={"/login"}>Login</MyLink> */}
-            {user ? (
+            {loading ? (
+              <ClockLoader color="#fff" />
+            ) : user ? (
               <div className="dropdown  border border-red-400">
                 <div tabIndex={0} role="button" className=" m-1">
                   <img
