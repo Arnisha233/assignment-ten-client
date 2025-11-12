@@ -8,7 +8,7 @@ import { MdCarRental } from "react-icons/md";
 import { toast } from "react-toastify";
 import { ClockLoader } from "react-spinners";
 import { Link } from "react-router";
-
+import { motion } from "framer-motion";
 const NavBar = () => {
   const { user, setUser, handleSignoutFun, loading, setLoading } =
     useContext(AuthContext);
@@ -79,11 +79,18 @@ const NavBar = () => {
             </div>
             <div className="flex items-center gap-2">
               <MdCarRental className="text-[#F9FAFB] text-3xl" />
-              <h1 className="text-white text-2xl font-semibold">Car Rental</h1>
+              <motion.h1
+                whileHover={{ scale: 1.1 }} // শুধু zoom হবে
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="text-white text-2xl font-semibold cursor-pointer"
+              >
+                Car Rental
+              </motion.h1>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="flex gap-12 items-center">
               <li>
                 <MyLink to={"/"} className="">
                   Home

@@ -14,30 +14,17 @@ const FeatureCarsCard = ({ car }) => {
           />
         </figure> */}
         <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <div className="text-white text-secondary badge text-xs badge-xs badge-secondary rounded-full">
+          <h2 className="card-title text-[#364d59] text-2xl">{name}</h2>
+          <p className="line-clamp-1 text-[#0779e4] text-[18px] font-medium">
+            {rentPrice}
+          </p>
+          <div className="text-white bg-[#364d59] badge text-[18px] py-2 rounded-full my-2.5">
             {category}
           </div>
-          <p className="text-sm text-gray-500">Provider: {Provider_Name}</p>
-          {/* <div>
-            <label className="label font-medium">{category}</label>
-            <select
-              defaultValue={""}
-              name="category"
-              required
-              className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
-            >
-              <option value="" disabled>
-                Select category
-              </option>
-              <option value="Vehicles">Sedan</option>
-              <option value="Plants">SUV</option>
-              <option value="Foods">Hatchback</option>
-              <option value="Home & Living">Luxury</option>
-              <option value="Characters">Electric</option>
-            </select>
-          </div> */}
-          <p className="line-clamp-1">{rentPrice}</p>
+          <p className="text-[20px] text-[#364d59]">
+            Provider: {Provider_Name}
+          </p>
+
           {/* <p>Available</p> */}
           {/* <p className="text-sm text-base-content/70">by {author}</p> */}
           <div className="card-actions justify-between items-center mt-4">
@@ -60,9 +47,9 @@ const FeatureCarsCard = ({ car }) => {
             </Link> */}
             <Link
               to={`/featured/${car._id}`}
-              className="btn rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm"
+              className="btn rounded-full bg-[#007bff] hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm"
             >
-              “View Details”
+              View Details
             </Link>
           </div>
         </div>
