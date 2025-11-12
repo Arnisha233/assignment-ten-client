@@ -1,82 +1,63 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { MdCarRental } from "react-icons/md";
+import MyContainer from "./MyContainer";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-[#1E3A8A] text-gray-200 p-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-md bg-indigo-600 flex items-center justify-center text-white font-bold">
-              {/* {siteName.slice(0, 2)} */}
-            </div>
-            <div>
-              {/* <div className="font-semibold">{siteName}</div> */}
-              <div className="text-sm text-gray-400">
-                AI-generated mystic tales
+    <div className="bg-gray-900 ">
+      <MyContainer>
+        <footer className=" text-gray-300 py-10 mt-10 border border-red-400">
+          <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            {/* Logo + Website Name */}
+            <div className="flex flex-col gap-2 ">
+              <div className="flex gap-5">
+                <MdCarRental className="text-[#F9FAFB] text-3xl" />
+                <h1 className="text-white text-2xl font-semibold mb-5">
+                  Car Rental
+                </h1>
+              </div>
+
+              <div className="flex gap-4 mt-4 text-2xl">
+                <FaFacebook className="hover:text-blue-500 cursor-pointer" />
+                <FaInstagram className="hover:text-pink-500 cursor-pointer" />
+                <FaTwitter className="hover:text-sky-400 cursor-pointer" />
+                <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
               </div>
             </div>
-          </div>
 
-          <div className="flex gap-8">
-            <div>
-              <h5 className="font-medium">Company</h5>
-              <ul className="text-sm">
-                <li>
-                  <a href="/about" className="hover:underline">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="/careers" className="hover:underline">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="hover:underline">
-                    Contact
-                  </a>
-                </li>
-              </ul>
+            {/* Contact Info */}
+            <div className=" ">
+              <h3 className="text-lg font-semibold text-white mb-3">
+                Contact Info
+              </h3>
+              <p>Email: arnishasarkar122@gmail.com</p>
+              <p>Phone: +880 1765 62 1002</p>
+              <p>Address: Dhaka, Bangladesh</p>
             </div>
 
-            <div>
-              <h5 className="font-medium">Legal</h5>
-              <ul className="text-sm">
-                <li>
-                  <a href="/terms" className="hover:underline">
-                    Terms
-                  </a>
+            {/* Terms & Social Links */}
+            <div className="text-right">
+              <h3 className="text-lg font-semibold text-white mb-3">
+                Useful Links
+              </h3>
+              <ul>
+                <li className="hover:text-blue-400 cursor-pointer">
+                  Terms & Conditions
                 </li>
-                <li>
-                  <a href="/privacy" className="hover:underline">
-                    Privacy
-                  </a>
+                <li className="hover:text-blue-400 cursor-pointer">
+                  Privacy Policy
                 </li>
               </ul>
             </div>
           </div>
 
-          <div>
-            <h5 className="font-medium">Get in touch</h5>
-            <p className="text-sm">hello@example.com</p>
-            <div className="flex gap-3 mt-2">
-              <a href="#" aria-label="Facebook">
-                FB
-              </a>
-              <a href="#" aria-label="Twitter">
-                TW
-              </a>
-              <a href="#" aria-label="Instagram">
-                IG
-              </a>
-            </div>
+          {/* Bottom Text */}
+          <div className="text-center text-gray-500 mt-8 text-sm border-t border-gray-700 pt-4">
+            Copyright ©2025 reserved | This website is made with Arnisha
           </div>
-        </div>
-
-        <div className="text-center text-sm text-gray-400 mt-6">
-          {/* &copy; {year} {siteName}. All rights reserved. */}
-        </div>
-      </footer>
+        </footer>
+      </MyContainer>
     </div>
   );
 };
