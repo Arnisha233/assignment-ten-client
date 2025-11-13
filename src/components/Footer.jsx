@@ -2,7 +2,7 @@ import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MdCarRental } from "react-icons/md";
 import MyContainer from "./MyContainer";
-
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
     <div className="bg-gray-900 ">
@@ -13,14 +13,28 @@ const Footer = () => {
             <div className="flex flex-col gap-2 ">
               <div className="flex gap-5">
                 <MdCarRental className="text-[#F9FAFB] text-3xl" />
-                <h1 className="text-white text-2xl font-semibold mb-5">
+                <motion.h2
+                  initial={{ opacity: 0, y: -50 }} // invisible & top
+                  animate={{ opacity: 1, y: 0 }} // fade in & move down
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="text-white text-2xl font-semibold mb-5"
+                >
                   Car Rental
-                </h1>
+                </motion.h2>
               </div>
 
               <div className="flex gap-4 mt-4 text-2xl">
-                <FaFacebook className="hover:text-blue-500 cursor-pointer" />
-                <FaInstagram className="hover:text-pink-500 cursor-pointer" />
+                <a href="https://facebook.com">
+                  <FaFacebook
+                    className="hover:text-blue-500 cursor-pointer"
+                    target="_blank"
+                  />
+                </a>
+                <a href="https:instagram.com">
+                  <FaInstagram className="hover:text-pink-500 cursor-pointer" />
+                </a>
                 <FaTwitter className="hover:text-sky-400 cursor-pointer" />
                 <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
               </div>

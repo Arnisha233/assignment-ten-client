@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 const FeaturedCars = ({ data }) => {
   console.log(data);
   const [cars, setCars] = useState(data);
+
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;
     if (!search_text) {
-      setCars(data); // খালি হলে সব দেখাবে
+      setCars(data);
       return;
     }
     // console.log(search_text);
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://car-one-gamma.vercel.app/search?search=${search_text}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -46,12 +47,16 @@ const FeaturedCars = ({ data }) => {
             </svg>
             <input name="search" type="search" placeholder="Search" />
           </label>
-          <button className="btn rounded-full bg-[#007bff] text-white">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="btn rounded-full bg-[#007bff] text-white"
+          >
             Search
-          </button>
+          </motion.button>
         </form>
         <div>
-          <div className="flex flex-col justify-center items-center ">
+          <div className="flex flex-col justify-center items-center">
             <motion.h2
               initial={{ opacity: 0, y: -50 }} // invisible & top
               animate={{ opacity: 1, y: 0 }} // fade in & move down

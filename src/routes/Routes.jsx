@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/newest-cars"),
+        loader: () => fetch("https://car-one-gamma.vercel.app/newest-cars"),
       },
       {
         path: "/addCar",
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
             <MyListings />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:3000/cars"),
+        loader: () => fetch("https://car-one-gamma.vercel.app/cars"),
       },
       {
         path: "/brows",
@@ -61,13 +61,13 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/cars/${params.id}`),
+          fetch(`https://car-one-gamma.vercel.app/cars/${params.id}`),
       },
       {
         path: "/featured/:id",
         element: <FeaturedCars />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/newest-cars/${params.id}`),
+          fetch(`https://car-one-gamma.vercel.app/newest-cars/${params.id}`),
       },
       {
         path: "/car-details/:id",
@@ -77,7 +77,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/cars/${params.id}`),
+          fetch(`https://car-one-gamma.vercel.app/cars/${params.id}`),
       },
       // {
       //   path: "/booking",

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../context/AuthContext";
+import img6 from "../assets/img6.jpg";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -73,88 +74,95 @@ const Registration = () => {
       });
   };
   return (
-    <div>
-      <MyContainer>
-        <div className="hero  min-h-screen">
-          <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="card bg-base-100 w-full max-w-sm md:max-w-md lg:max-w-lg shadow-2xl">
-              <form onSubmit={handleRegistration}>
-                <div className="card-body">
-                  <fieldset className="fieldset">
-                    <label className="label">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="input input-bordered w-ful "
-                      placeholder="enter your name"
-                    />
-                    <label className="label">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="input input-bordered w-ful"
-                      placeholder="Email"
-                    />
-                    <label className="label">Photo</label>
-                    <input
-                      type="text"
-                      name="photo"
-                      className="input input-bordered w-full"
-                      placeholder="Your photo URL here"
-                    />
-                    <div className="relative">
-                      <label className="label ">Password</label>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${img6})`,
+      }}
+    >
+      <div>
+        <MyContainer>
+          <div className="hero  min-h-screen">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+              <div className="card bg-base-100 w-full max-w-sm md:max-w-md lg:max-w-lg shadow-2xl">
+                <form onSubmit={handleRegistration}>
+                  <div className="card-body">
+                    <fieldset className="fieldset">
+                      <label className="label">Name</label>
                       <input
-                        type={show ? "text" : "password"}
-                        name="password"
-                        className="input input-bordered w-full"
-                        placeholder="Password"
+                        type="text"
+                        name="name"
+                        className="input input-bordered w-ful "
+                        placeholder="enter your name"
                       />
+                      <label className="label">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        className="input input-bordered w-ful"
+                        placeholder="Email"
+                      />
+                      <label className="label">Photo</label>
+                      <input
+                        type="text"
+                        name="photo"
+                        className="input input-bordered w-full"
+                        placeholder="Your photo URL here"
+                      />
+                      <div className="relative">
+                        <label className="label ">Password</label>
+                        <input
+                          type={show ? "text" : "password"}
+                          name="password"
+                          className="input input-bordered w-full"
+                          placeholder="Password"
+                        />
 
-                      <span
-                        onClick={() => setShow(!show)}
-                        className="absolute right-[10px] top-[30px] cursor-pointer"
-                      >
-                        {show ? <FaEye /> : <IoEyeOff />}
-                      </span>
-                    </div>
-                    {/* <div>
+                        <span
+                          onClick={() => setShow(!show)}
+                          className="absolute right-[10px] top-[30px] cursor-pointer"
+                        >
+                          {show ? <FaEye /> : <IoEyeOff />}
+                        </span>
+                      </div>
+                      {/* <div>
                     <a className="link link-hover">Forgot password?</a>
                   </div> */}
-                    {/* Google Signin */}
-                    <button
-                      onClick={handleGoogleLogin}
-                      type="button"
-                      className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
-                    >
-                      <img
-                        src="https://www.svgrepo.com/show/475656/google-color.svg"
-                        alt="google"
-                        className="w-5 h-5"
-                      />
-                      Continue with Google
-                    </button>
-                    <button className="btn btn-neutral mt-4">
-                      Registration
-                    </button>
-                  </fieldset>
-                  <div className="text-center mt-3">
-                    <p className="text-sm text-black">
-                      Already have an account?{" "}
-                      <Link
-                        to="/login"
-                        className="text-primary hover:text-#000[] font-medium underline"
+                      {/* Google Signin */}
+                      <button
+                        onClick={handleGoogleLogin}
+                        type="button"
+                        className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
                       >
-                        Log in
-                      </Link>
-                    </p>
+                        <img
+                          src="https://www.svgrepo.com/show/475656/google-color.svg"
+                          alt="google"
+                          className="w-5 h-5"
+                        />
+                        Continue with Google
+                      </button>
+                      <button className="btn btn-neutral mt-4">
+                        Registration
+                      </button>
+                    </fieldset>
+                    <div className="text-center mt-3">
+                      <p className="text-sm text-black">
+                        Already have an account?{" "}
+                        <Link
+                          to="/login"
+                          className="text-primary hover:text-#000[] font-medium underline"
+                        >
+                          Log in
+                        </Link>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </MyContainer>
+        </MyContainer>
+      </div>
     </div>
   );
 };

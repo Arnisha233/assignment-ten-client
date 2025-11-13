@@ -25,7 +25,7 @@ const Slider = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="text-5xl font-bold mb-4 text-red"
+              className="text-5xl font-bold mb-4 text-red "
             >
               Luxury Rides
             </motion.h2>
@@ -44,9 +44,9 @@ const Slider = () => {
               special occasion, drive with pride and feel the difference.
             </motion.p>
             <motion.button
-              whileHover={{ scale: 1.05 }} // hover করলে একটু বড় হবে
-              whileTap={{ scale: 0.95 }} // click করলে একটু shrink হবে
-              className="btn bg-[#007bff]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn bg-[#007bff] text-white"
             >
               Explore Now
             </motion.button>
@@ -74,7 +74,7 @@ const Slider = () => {
               smooth ride without compromising on power or style. Drive
               responsibly and help make our planet cleaner with every journey.
             </p>
-            <button className="btn btn-success">Book Now</button>
+            <button className="btn bg-[#007bff] text-white">Book Now</button>
           </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-[4]">
             <a href="#slide1" className="btn btn-circle">
@@ -97,7 +97,9 @@ const Slider = () => {
               smooth ride without compromising on power or style. Drive
               responsibly and help make our planet cleaner with every journey.
             </p>
-            <button className="btn btn-warning">Discover More</button>
+            <button className="btn bg-[#007bff] text-white">
+              Discover More
+            </button>
           </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-[4]">
             <a href="#slide2" className="btn btn-circle">
@@ -122,7 +124,7 @@ const Slider = () => {
               relaxing experience for every passenger. Explore new destinations
               together and create memories that last a lifetime.
             </p>
-            <button className="btn btn-info">Check Now</button>
+            <button className="btn bg-[#007bff] text-white">Check Now</button>
           </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between z-[4]">
             <a href="#slide3" className="btn btn-circle">

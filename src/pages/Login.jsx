@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import img6 from "../assets/img6.jpg";
 const googleProvider = new GoogleAuthProvider();
 const Login = () => {
   // const [user, setUser] = useState(null);
@@ -58,72 +59,88 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="hero  min-h-screen">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form onSubmit={handleLogin}>
-              <div className="card-body">
-                <fieldset className="fieldset">
-                  <label className="label">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    // ref={emailRef}
-                    className="input"
-                    placeholder="Email"
-                  />
-                  <div className="relative">
-                    <label className="label ">Password</label>
+    <div
+      className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${img6})`,
+      }}
+    >
+      <div>
+        <div className="hero  min-h-screen">
+          <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+              <form onSubmit={handleLogin}>
+                <div className="card-body w-[500px] h-[500px] bg-white ">
+                  <h1 className="pt-10 text-center text-[#364d59] font-medium text-3xl">
+                    User Login
+                  </h1>
+                  <fieldset className="fieldset w-[450px]  h-[600px] flex flex-col justify-center mt-3 ">
+                    <label className="label text-[#364d59] font-bold text-[18px]">
+                      Email
+                    </label>
                     <input
-                      type={show ? "text" : "password"}
-                      name="password"
-                      className="input input-bordered w-full bg-white/20 "
-                      placeholder="Password"
+                      type="email"
+                      name="email"
+                      // ref={emailRef}
+                      className="input w-[450px] "
+                      placeholder="Email"
                     />
-                    <span
-                      onClick={() => setShow(!show)}
-                      className="absolute right-[10px] top-[30px] cursor-pointer"
+                    <div className="relative">
+                      <label className="label text-[#364d59] font-bold text-[18px]">
+                        Password
+                      </label>
+                      <input
+                        type={show ? "text" : "password"}
+                        name="password"
+                        className="input input-bordered w-full bg-white/20 "
+                        placeholder="Password"
+                      />
+                      <span
+                        onClick={() => setShow(!show)}
+                        className="absolute right-[10px] top-[40px] cursor-pointer"
+                      >
+                        {show ? <FaEye /> : <IoEyeOff />}
+                      </span>
+                    </div>
+                    {/* Google Signin */}
+                    <button
+                      onClick={handleGoogleLogin}
+                      type="button"
+                      className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer mt-4 text-[18px]"
                     >
-                      {show ? <FaEye /> : <IoEyeOff />}
-                    </span>
-                  </div>
-                  {/* Google Signin */}
-                  <button
-                    onClick={handleGoogleLogin}
-                    type="button"
-                    className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
-                  >
-                    <img
-                      src="https://www.svgrepo.com/show/475656/google-color.svg"
-                      alt="google"
-                      className="w-5 h-5"
-                    />
-                    Continue with Google
-                  </button>
+                      <img
+                        src="https://www.svgrepo.com/show/475656/google-color.svg"
+                        alt="google"
+                        className="w-5 h-5"
+                      />
+                      Continue with Google
+                    </button>
 
-                  <div>
-                    {/* <button
+                    <div>
+                      {/* <button
                       type="button"
                       // onClick={handleForgetPassword}
                       className="link link-hover"
                     >
                       Forgot password?
                     </button> */}
-                  </div>
-                  <button className="btn btn-neutral mt-4">Login</button>
-                </fieldset>
-                <p className="text-sm text-black">
-                  Don’t have an account?{" "}
-                  <Link
-                    to="/registration"
-                    className="text-primary hover:text-#000[] font-medium underline"
-                  >
-                    Registration
-                  </Link>
-                </p>
-              </div>
-            </form>
+                    </div>
+                    <button className="btn bg-[#007bff] mt-4 text-white text-[18px]">
+                      Login
+                    </button>
+                  </fieldset>
+                  <p className="text-sm text-black text-[18px]">
+                    Don’t have an account?{" "}
+                    <Link
+                      to="/registration"
+                      className="text-primary hover:text-#000[] font-medium underline"
+                    >
+                      Registration
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

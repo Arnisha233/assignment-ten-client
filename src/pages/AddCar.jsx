@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import addcar from "../assets/addcar.avif";
 import addcar3 from "../assets/addcar3.avif";
+import { motion } from "framer-motion";
 const AddCar = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const AddCar = () => {
       Provider_Email: user.email,
       status: "available",
     };
-    fetch("http://localhost:3000/cars", {
+    fetch("https://car-one-gamma.vercel.app/cars", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,16 @@ const AddCar = () => {
     >
       <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl my-24">
         <div className="card-body p-6 relative">
-          <h2 className="text-2xl font-bold text-center mb-6">Add New Model</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: -50 }} // invisible & top
+            animate={{ opacity: 1, y: 0 }} // fade in & move down
+            transition={{ duration: 1, ease: "easeOut" }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-2xl font-bold text-center mb-6"
+          >
+            Add New Model
+          </motion.h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name Field */}
             <div>
@@ -123,12 +132,14 @@ const AddCar = () => {
             </div>
 
             {/* Submit Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               type="submit"
               className="btn w-full text-white mt-6 rounded-full bg-[#007bff] hover:from-pink-600 hover:to-red-700"
             >
               Add Car
-            </button>
+            </motion.button>
           </form>
         </div>
       </div>

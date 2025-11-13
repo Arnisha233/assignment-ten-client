@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-
+import { motion } from "framer-motion";
 const Brows = ({ product }) => {
   const { name, category, rentPrice, _id, status } = product;
   return (
@@ -15,7 +15,7 @@ const Brows = ({ product }) => {
         </figure> */}
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
-          <div className="text-white text-secondary badge text-xs badge-xs badge-secondary rounded-full">
+          <div className="text-white bg-[#364d59] badge text-[18px] py-2 rounded-full my-2.5">
             {category}
           </div>
           <p className="line-clamp-1">{rentPrice}</p>
@@ -38,12 +38,13 @@ const Brows = ({ product }) => {
               {likes}
             </span> */}
             </div>
-            <Link
-              to={`/car-details/${_id}`}
-              className="btn rounded-full bg-[#007bff] hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-[30px] py-[10px] rounded-full bg-[#007bff] text-white w-full"
             >
-              View Details
-            </Link>
+              <Link to={`/car-details/${_id}`}>View Details</Link>
+            </motion.button>
           </div>
         </div>
       </div>

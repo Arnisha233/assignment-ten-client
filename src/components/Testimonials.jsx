@@ -1,6 +1,8 @@
 import React from "react";
 import MyContainer from "./MyContainer";
 import customer1 from "../assets/customer1.jpg";
+import customer2 from "../assets/customer2.jpg";
+import customer3 from "../assets/customer3.jpg";
 const Testimonials = () => {
   return (
     <div className="mb-10">
@@ -15,7 +17,7 @@ const Testimonials = () => {
                 booking process was quick, and the car was in perfect condition.
                 Highly recommended!
               </p>
-              <div className="flex gap-5 w-full border border-red-400 mt-3">
+              <div className="flex gap-5 w-full  mt-3">
                 <img className="w-[30px] rounded-full" src={customer1} alt="" />
                 <div>
                   <h4 className="text-[#364d59] font-medium">Rose</h4>
@@ -34,8 +36,8 @@ const Testimonials = () => {
                 stress-free. The support team was very responsive whenever I had
                 questions
               </p>
-              <div className="flex gap-5 w-full border border-red-400 mt-3">
-                <img className="w-[30px] rounded-full" src={customer1} alt="" />
+              <div className="flex gap-5 w-full  mt-3">
+                <img className="w-[30px] rounded-full" src={customer2} alt="" />
                 <div>
                   <h4 className="text-[#364d59] font-medium">David Johnson</h4>
                   <h4 className="text-[#888888]">customer</h4>
@@ -53,8 +55,8 @@ const Testimonials = () => {
                 went. 24/7 support is a big plus. I’ll definitely rent here
                 again!
               </p>
-              <div className="flex gap-5 w-full border border-red-400 mt-3">
-                <img className="w-[30px] rounded-full" src={customer1} alt="" />
+              <div className="flex gap-5 w-full  mt-3">
+                <img className="w-[35px] rounded-full" src={customer3} alt="" />
                 <div>
                   <h4 className="text-[#364d59] font-medium">Emily Chen</h4>
                   <h4 className="text-[#888888]">customer</h4>
